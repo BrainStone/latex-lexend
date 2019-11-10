@@ -4,7 +4,7 @@ stages:
 build_package:
   stage: build
   script:
-  - make build
+  - make build | ts -s '(%H:%M:%.S)]' | ts $'\033[0m[%Y-%m-%d %H:%M:%S'
   artifacts:
     paths:
     - lexend.zip
