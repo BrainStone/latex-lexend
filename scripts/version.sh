@@ -27,11 +27,7 @@ function getBuild() {
 
 BUILD=$(getBuild)
 
-function getVersion() {
-    if [ -z "$BRANCH"]; then
-        BRANCH=$(git describe --all | sed -e 's@^[^/]*/@@g' -e 's@/\|\\@_@g')
-    fi
-
+function getShortVersion() {
     local tempVersion=($(echo $GIT_DESCRIPTION | sed -e 's/^v\|-.*//g' -e 's/\./ /g'))
 
     if [ $IS_DEV -eq 1 ]; then
@@ -47,7 +43,19 @@ function getVersion() {
         fi
     fi
 
-    local baseVersion="$(printf "%s." "${tempVersion[@]}")$BUILD"
+    local baseVersion="$(printf ".%s" "${tempVersion[@]}")"
+
+    echo "${baseVersion:1}"
+}
+
+SHORT_VERSION="$(getShortVersion)"
+
+function getVersion() {
+    local baseVersion="$SHORT_VERSION.$BUILD"
+
+    if [ -z "$BRANCH"]; then
+        BRANCH=$(git describe --all | sed -e 's@^[^/]*/@@g' -e 's@/\|\\@_@g')
+    fi
 
     if [ "$BRANCH" != "master" ] && ! [[ "$BRANCH" =~ v[0-9]+\\.[0-9]+\\.[0-9]+ ]]; then
         baseVersion="$baseVersion-$BRANCH"
