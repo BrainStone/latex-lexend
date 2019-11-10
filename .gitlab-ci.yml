@@ -1,10 +1,15 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 stages:
   - build
 
 build_package:
   stage: build
+  tags:
+    - latex
   script:
-  - make build | ts -s '(%H:%M:%.S)]' | ts $'\033[0m[%Y-%m-%d %H:%M:%S'
+    - make build | ts -s '(%H:%M:%.S)]' | ts $'\033[0m[%Y-%m-%d %H:%M:%S'
   artifacts:
     paths:
-    - lexend.zip
+      - lexend.zip
