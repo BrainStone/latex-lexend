@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Make sure all files in the .hook and scripts directory are executable
+git ls-files --stage | grep -oE '(\.hooks|scripts)/.*' | while read -r line; do
+  git update-index --chmod=+x -- "$line"
+done
