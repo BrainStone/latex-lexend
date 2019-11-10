@@ -61,3 +61,15 @@ function getVersion() {
 }
 
 VERSION="$(getVersion)"
+
+function getChangelog() {
+    if [ -f CHANGELOG.md ]; then
+        local changelog="$(cat CHANGELOG.md | tr -d '\r' | awk 'BEGIN{p=0} /^Version /{p++; if (p != 1) exit} {if (p == 1) print}')"
+    fi
+
+    if [ -z "$changelog" ]; then
+        echo "*No Changelog*"
+    else
+        echo "$changelog"
+    fi
+}
