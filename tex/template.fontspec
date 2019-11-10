@@ -1,0 +1,7 @@
+\defaultfontfeatures[%FONTNAME%]
+  {
+    Extension = {.ttf},
+    UprightFont = {*-Regular},
+    AutoFakeBold,
+    AutoFakeSlant
+  }
