@@ -1,3 +1,7 @@
+## Ignore build artifacts
+lexend.zip
+lexend/
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

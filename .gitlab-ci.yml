@@ -1,0 +1,10 @@
+stages:
+  - build
+
+build_package:
+  stage: build
+  script:
+  - make build
+  artifacts:
+    paths:
+    - lexend.zip

@@ -1,5 +1,17 @@
-.PHONY: setupWorkspace gitTag gitTagMinor gitTagMajor
+.PHONY: default setupWorkspace gitTag gitTagMinor gitTagMajor build
+default: build
 
+# Files
+lexend/:
+	mkdir -p lexend
+
+lexend/README.md: lexend/
+	cp README.md lexend/
+
+lexend.zip: lexend/ lexend/README.md
+	zip -r lexend.zip lexend
+
+# Tasks
 setupWorkspace:
 	cp -afv .hooks/* .git/hooks/
 
@@ -11,3 +23,5 @@ gitTagMinor:
 
 gitTagMajor:
 	@MAJOR=1 ./scripts/git_tag.sh
+
+build: lexend.zip
