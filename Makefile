@@ -5,6 +5,8 @@ TARGET_FONT_FILES     := $(SRC_FONT_FILES:font/fonts/ttf/%.ttf=lexend/font/%.ttf
 TARGET_FONTSPEC_FILES := $(TARGET_FONT_FILES:lexend/font/%-Regular.ttf=lexend/tex/%.fontspec)
 TARGET_PACKAGE_FILES  := $(SRC_PACKAGE_FILES:tex/%.sty=lexend/tex/%.sty)
 
+VERSION               := $(shell ./scripts/get_version.sh)
+
 # Tasks
 .PHONY: default setupWorkspace gitTag gitTagMinor gitTagMajor build
 ## We don't want make to try and remove files
@@ -46,15 +48,24 @@ lexend/font/%.ttf: font/fonts/ttf/%.ttf lexend/font/
 	@echo Copying font file $*.ttf:
 	@cp -v $< $@
 
-lexend/tex/%.fontspec: lexend/font/%-Regular.ttf tex/template.fontspec lexend/tex/
+lexend/tex/%.fontspec: tex/template.fontspec lexend/font/%-Regular.ttf lexend/tex/
 	@echo Creating fontspec file for $*:
-	@cp -v tex/template.fontspec $@
+	@cp -v $< $@
 	@sed -i "s/%FONTNAME%/$*/g" $@
 
 lexend/tex/%.sty: tex/%.sty lexend/tex/
 	@echo Copying package file $*.sty:
 	@cp -v $< $@
 
-lexend.zip: lexend/README.md $(TARGET_FONT_FILES) $(TARGET_FONTSPEC_FILES) $(TARGET_PACKAGE_FILES)
+lexend/doc/lexend.tex: doc/lexend.tex lexend/doc/
+	@echo Copying documentation file lexend.tex:
+	@cp -v $< $@
+	@sed -i "s/%VERSION%/$(VERSION)/g" $@
+
+lexend/doc/lexend.pdf: $(TARGET_FONT_FILES) $(TARGET_FONTSPEC_FILES) $(TARGET_PACKAGE_FILES) lexend/doc/lexend.tex lexend/doc/
+	@echo Rendering documentation file pdf:
+	@./scipts/render_pdf.sh
+
+lexend.zip: lexend/README.md $(TARGET_FONT_FILES) $(TARGET_FONTSPEC_FILES) $(TARGET_PACKAGE_FILES) lexend/doc/lexend.tex lexend/doc/lexend.pdf
 	@echo Creating final lexend.zip:
 	@zip -r lexend.zip lexend
