@@ -1,4 +1,4 @@
-\documentclass[12pt,oneside,a4paper]{memoir}
+\documentclass[12pt,oneside,a4paper]{ltxdoc}
 
 % Packages
 \usepackage[english]{babel}
@@ -16,23 +16,10 @@
 
 
 % Settings
-\setsecnumdepth{subsection}
-\settocdepth{subsection}
-
 \setmainfont{LexendDeca}
 \setsansfont{LexendExa}
 
 \setlength{\parindent}{0pt}
-\nonzeroparskip
-\abnormalparskip{1.5em}
-
-\setlrmarginsandblock{2.5cm}{2.5cm}{*}
-\setulmarginsandblock{3.5cm}{3.5cm}{*}
-\checkandfixthelayout
-
-\chapterstyle{ell}
-\setlength{\beforechapskip}{-2cm}
-\setlength{\footskip}{5em}
 
 % Additional commands
 
@@ -41,7 +28,7 @@
 
 \title{
 	The \textsf{lexend} package\\
-	\small{The \href{https://www.lexend.com/}{\textsf{Lexend} fonts} for \XeLaTeX{} and \LuaLaTeX{} through \textsf{fontspec}}
+	\small{The \href{https://www.lexend.com/}{\textsf{Lexend} fonts} for \hologo{XeLaTeX} and \hologo{LuaLaTeX} through \textsf{fontspec}}
 }
 \author{
 	Yannick Schinko
@@ -53,7 +40,6 @@
 
 \pagenumbering{roman}
 \maketitle
-\newpage
 
 \begin{abstract}
 Abstract text
@@ -65,12 +51,14 @@ Abstract text
 
 \pagenumbering{arabic}
 
-\chapter{Changelog}
+\section{Section}
 
 %CHANGELOG%
 
-\chapter{Start}
+\section{Start}
 
 Test
+
+\subsection{Hi}
 
 \end{document}

@@ -15,6 +15,9 @@ function cleanup() {
 }
 trap cleanup EXIT
 
+# Exit on any error
+set -e
+
 # All files have been created, because we depend on them in the Makefile.
 # This includes, the font files, the fontspec files, sty file and tex doc file.
 # And we want to copy them flatly
