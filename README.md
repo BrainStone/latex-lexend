@@ -1,2 +1,3 @@
 # latex-lexend
-A LaTeX package to provide the Lexend fonts
+
+The [Lexend fonts](https://www.lexend.com/) for XeLaTeX and LuaLaTeX through fontspec

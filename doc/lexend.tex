@@ -3,6 +3,17 @@
 % Packages
 \usepackage[english]{babel}
 \usepackage{fontspec}
+\usepackage{hologo}
+\usepackage[
+	hidelinks,
+	bookmarksnumbered,
+	bookmarksopen,
+	bookmarksdepth=3,
+	colorlinks=true,
+	allcolors=blue,
+	unicode
+]{hyperref}
+
 
 % Settings
 \setsecnumdepth{subsection}
@@ -30,14 +41,14 @@
 
 \title{
 	The \textsf{lexend} package\\
-	\small{Font selection for XeLaTeX and LuaLaTeX}
+	\small{The \href{https://www.lexend.com/}{\textsf{Lexend} fonts} for \XeLaTeX{} and \LuaLaTeX{} through \textsf{fontspec}}
 }
 \author{
 	Yannick Schinko
 }
 \date{
 	\today\\
-	%VERSION%
+	v%VERSION%
 }
 
 \pagenumbering{roman}
