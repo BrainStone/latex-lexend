@@ -18,11 +18,11 @@ trap cleanup EXIT
 # Exit on any error
 set -e
 
-# All files have been created, because we depend on them in the Makefile.
+# Copy all files passed from the Makefile.
 # This includes, the font files, the fontspec files, sty file and tex doc file.
 # And we want to copy them flatly
+cp "$@" "$TEMP_DIR"
 cd "$TEMP_DIR"
-cp "$BASE_DIR"/lexend/*/* .
 
 # Actually render doc file (And set the "current timestamp" in the document to be the timestamp of the last commit)
 FORCE_SOURCE_DATE=1 SOURCE_DATE_EPOCH=$TIMESTAMP latexmk -lualatex lexend.tex

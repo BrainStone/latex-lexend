@@ -7,6 +7,9 @@ TARGET_PACKAGE_FILES  := $(SRC_PACKAGE_FILES:tex/%.sty=lexend/tex/%.sty)
 
 VERSION               := $(shell ./scripts/get_version.sh)
 
+# Little helper expression
+CHANGELOG              = $(shell  lexend/doc/.CHANGELOG.tex)
+
 # Tasks
 .PHONY: default setupWorkspace gitTag gitTagMinor gitTagMajor build
 ## We don't want make to try and remove files
@@ -40,9 +43,9 @@ lexend/%/:
 	@echo Creating $* directory:
 	@mkdir -pv $@
 
-lexend/README.md: lexend/
-	@echo Copying README.md:
-	@cp -v README.md lexend/
+lexend/%.md: %.md lexend/
+	@echo Copying $*.md:
+	@cp -v $< $@
 
 lexend/font/%.ttf: font/fonts/ttf/%.ttf lexend/font/
 	@echo Copying font file $*.ttf:
@@ -57,14 +60,17 @@ lexend/tex/%.sty: tex/%.sty lexend/tex/
 	@echo Copying package file $*.sty:
 	@cp -v $< $@
 
-lexend/doc/lexend.tex: doc/lexend.tex lexend/doc/
+lexend/doc/lexend.tex: doc/lexend.tex CHANGELOG.md lexend/doc/
 	@echo Copying documentation file lexend.tex:
 	@cp -v $< $@
-	@sed -i "s/%VERSION%/$(VERSION)/g" $@
+	@echo Replacing placeholders in lexend.tex
+	@pandoc CHANGELOG.md -f markdown -o lexend/doc/.CHANGELOG.tex -t latex
+	@sed -i -e "s/%VERSION%/$(VERSION)/g" -e '/%CHANGELOG%/ {' -e 'r lexend/doc/.CHANGELOG.tex' -e 'd' -e '}' $@
+	@rm lexend/doc/.CHANGELOG.tex
 
-lexend/doc/lexend.pdf: $(TARGET_FONT_FILES) $(TARGET_FONTSPEC_FILES) $(TARGET_PACKAGE_FILES) lexend/doc/lexend.tex lexend/doc/
+lexend/doc/lexend.pdf: $(TARGET_FONT_FILES) $(TARGET_FONTSPEC_FILES) $(TARGET_PACKAGE_FILES) lexend/doc/lexend.tex
 	@echo Rendering documentation file pdf:
-	@./scripts/render_doc.sh
+	@./scripts/render_doc.sh $^
 
 lexend.zip: lexend/README.md $(TARGET_FONT_FILES) $(TARGET_FONTSPEC_FILES) $(TARGET_PACKAGE_FILES) lexend/doc/lexend.tex lexend/doc/lexend.pdf
 	@echo Creating final lexend.zip:
