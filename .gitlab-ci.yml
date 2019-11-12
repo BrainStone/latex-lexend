@@ -1,5 +1,6 @@
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
+  BRANCH: "$CI_COMMIT_REF_NAME"
 
 stages:
   - build
