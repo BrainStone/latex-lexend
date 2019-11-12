@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/bash -x
 
 # Save some variables
 TIMESTAMP=$(git log -1 --date=format:'%s' --format="%ad")
