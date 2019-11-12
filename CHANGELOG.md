@@ -1,7 +1,7 @@
 Version 0.1.0
 -------------
 
-\+ Created packed lexend.  
+\+ Created the lexend package.
 \+ Added build system.  
 \+ Added package docs.  
 

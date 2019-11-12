@@ -64,7 +64,8 @@ lexend/doc/lexend.tex: doc/lexend.tex CHANGELOG.md lexend/doc/
 	@echo Copying documentation file lexend.tex:
 	@cp -v $< $@
 	@echo Replacing placeholders in lexend.tex
-	@pandoc CHANGELOG.md -f markdown -o lexend/doc/.CHANGELOG.tex -t latex
+	@pandoc CHANGELOG.md -f markdown -o lexend/doc/.CHANGELOG.tex -t latex --columns 100
+	@sed -i 's/\\subsection/\\subsection*/g' lexend/doc/.CHANGELOG.tex 
 	@sed -i -e "s/%VERSION%/$(VERSION)/g" -e '/%CHANGELOG%/ {' -e 'r lexend/doc/.CHANGELOG.tex' -e 'd' -e '}' $@
 	@rm lexend/doc/.CHANGELOG.tex
 
