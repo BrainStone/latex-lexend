@@ -1,0 +1,48 @@
+\documentclass[12pt,oneside,a4paper]{memoir}
+
+% Packages
+\usepackage[english]{babel}
+\usepackage{fontspec}
+
+% Settings
+\setsecnumdepth{subsection}
+\settocdepth{subsection}
+
+\setmainfont{LexendDeca}
+\setsansfont{LexendExa}
+
+% Additional commands
+
+% Document start
+\begin{document}
+
+\title{
+	The \textsf{lexend} package\\
+	\small{Font selection for XeLaTeX and LuaLaTeX}
+}
+\author{
+	Yannick Schinko
+}
+\date{
+	\today\\
+	%VERSION%
+}
+
+\pagenumbering{roman}
+\NoBgThispage
+\maketitle
+
+\begin{abstract}
+Abstract text
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+
+\chapter{Start}
+
+Test
+
+\end{document}

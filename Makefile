@@ -64,7 +64,7 @@ lexend/doc/lexend.tex: doc/lexend.tex lexend/doc/
 
 lexend/doc/lexend.pdf: $(TARGET_FONT_FILES) $(TARGET_FONTSPEC_FILES) $(TARGET_PACKAGE_FILES) lexend/doc/lexend.tex lexend/doc/
 	@echo Rendering documentation file pdf:
-	@./scipts/render_pdf.sh
+	@./scripts/render_doc.sh
 
 lexend.zip: lexend/README.md $(TARGET_FONT_FILES) $(TARGET_FONTSPEC_FILES) $(TARGET_PACKAGE_FILES) lexend/doc/lexend.tex lexend/doc/lexend.pdf
 	@echo Creating final lexend.zip:
