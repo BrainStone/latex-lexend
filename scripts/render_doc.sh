@@ -1,8 +1,11 @@
 #! /bin/bash
 
-# Save some variables
-TIMESTAMP=$(git log -1 --date=format:'%s' --format="%ad")
+# Load version helper stuff
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+
+source "$SCRIPT_DIR/version.sh"
+
+# Save the base dir
 BASE_DIR="$(cd "$SCRIPT_DIR"/.. >/dev/null 2>&1 && pwd)"
 
 # Create a temporary work dir

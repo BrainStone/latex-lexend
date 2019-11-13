@@ -5,10 +5,9 @@ TARGET_FONT_FILES     := $(SRC_FONT_FILES:font/fonts/ttf/%.ttf=lexend/font/%.ttf
 TARGET_FONTSPEC_FILES := $(TARGET_FONT_FILES:lexend/font/%-Regular.ttf=lexend/tex/%.fontspec)
 TARGET_PACKAGE_FILES  := $(SRC_PACKAGE_FILES:tex/%.sty=lexend/tex/%.sty)
 
-VERSION               := $(shell ./scripts/get_version.sh)
-
-# Little helper expression
-CHANGELOG              = $(shell  lexend/doc/.CHANGELOG.tex)
+VERSION               := $(shell ./scripts/get_version.sh version)
+TIMESTAMP             := $(shell ./scripts/get_version.sh timestamp)
+DATE                  := $(shell date -d@$(TIMESTAMP) +%Y/%m/%d)
 
 # Tasks
 .PHONY: default setupWorkspace gitTag gitTagMinor gitTagMajor build
@@ -59,6 +58,7 @@ lexend/tex/%.fontspec: tex/template.fontspec lexend/font/%-Regular.ttf lexend/te
 lexend/tex/%.sty: tex/%.sty lexend/tex/
 	@echo Copying package file $*.sty:
 	@cp -v $< $@
+	@sed -i -e "s/%VERSION%/$(VERSION)/g" -e "s@%DATE%@$(DATE)@g" $@
 
 lexend/doc/lexend.tex: doc/lexend.tex CHANGELOG.md lexend/doc/
 	@echo Copying documentation file lexend.tex:
