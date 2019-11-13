@@ -1,4 +1,4 @@
 # Auto detect text files and perform LF normalization
 *         text=auto
 # Detect correct language
-doc/      linguist-documentation=false
+doc/*     linguist-documentation=false

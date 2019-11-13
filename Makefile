@@ -42,6 +42,10 @@ lexend/%/:
 	@echo Creating $* directory:
 	@mkdir -pv $@
 
+lexend/LICENSE: LICENSE.package lexend/
+	@echo Copying LICENSE:
+	@cp -v $< $@
+
 lexend/%.md: %.md lexend/
 	@echo Copying $*.md:
 	@cp -v $< $@
@@ -73,6 +77,6 @@ lexend/doc/lexend.pdf: $(TARGET_FONT_FILES) $(TARGET_FONTSPEC_FILES) $(TARGET_PA
 	@echo Rendering documentation file pdf:
 	@./scripts/render_doc.sh $^
 
-lexend.zip: lexend/README.md $(TARGET_FONT_FILES) $(TARGET_FONTSPEC_FILES) $(TARGET_PACKAGE_FILES) lexend/doc/lexend.tex lexend/doc/lexend.pdf
+lexend.zip: lexend/LICENSE lexend/README.md $(TARGET_FONT_FILES) $(TARGET_FONTSPEC_FILES) $(TARGET_PACKAGE_FILES) lexend/doc/lexend.tex lexend/doc/lexend.pdf
 	@echo Creating final lexend.zip:
 	@zip -r lexend.zip lexend
