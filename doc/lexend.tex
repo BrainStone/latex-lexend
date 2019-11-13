@@ -86,7 +86,7 @@ Each font will be shown off in the sizes \textsf{\textbackslash{}small},
 
 \foreach \fontVariant in \lexendVariants
 {
-	\subsection{\fontspec{\fontVariant}{\fontVariant}}
+	\subsection{\texorpdfstring{\fontspec{\fontVariant}{\fontVariant}}{\fontVariant}}
 	
 	\fontspec{\fontVariant}{
 		\small{\blindtext}\bigskip
