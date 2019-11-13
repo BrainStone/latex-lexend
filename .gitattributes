@@ -1,4 +1,6 @@
 # Auto detect text files and perform LF normalization
-*         text=auto
+*          text=auto
 # Detect correct language
-doc/*     linguist-documentation=false
+doc/*      linguist-documentation=false
+*.sty      linguist-language=TeX
+*.fontspec linguist-language=TeX
