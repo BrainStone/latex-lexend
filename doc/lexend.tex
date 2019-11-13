@@ -15,6 +15,7 @@
 	allcolors=blue,
 	unicode
 ]{hyperref}
+\usepackage{pgffor}
 
 % Settings
 
@@ -62,76 +63,19 @@ Abstract text
 While this whole document uses LexendDeca as the main font and LexendGiga as the sans font, it
 doesn't hurt showing them off individually.\\
 Each font will be shown off in the sizes \textsf{\textbackslash{}small},
-\textsf{\textbackslash{}normalsize} and\textsf{\textbackslash{}large}.
+\textsf{\textbackslash{}normalsize} and \textsf{\textbackslash{}large}.
 
-\subsection{LexendDeca}
+\foreach \fontVariant in \lexendVariants
+{
+	\subsection{\fontspec{\fontVariant}{\fontVariant}}
+	
+	\fontspec{\fontVariant}{
+		\small{\blindtext}\bigskip
 
-\LexendDeca{
-	\small{\blindtext}\bigskip
+		\normalsize{\blindtext}\bigskip
 
-	\normalsize{\blindtext}\bigskip
-
-	\large{\blindtext}
-}
-
-\subsection{LexendExa}
-
-\LexendExa{
-	\small{\blindtext}\bigskip
-
-	\normalsize{\blindtext}\bigskip
-
-	\large{\blindtext}
-}
-
-\subsection{LexendGiga}
-
-\LexendGiga{
-	\small{\blindtext}\bigskip
-
-	\normalsize{\blindtext}\bigskip
-
-	\large{\blindtext}
-}
-
-\subsection{LexendMega}
-
-\LexendMega{
-	\small{\blindtext}\bigskip
-
-	\normalsize{\blindtext}\bigskip
-
-	\large{\blindtext}
-}
-
-\subsection{LexendPeta}
-
-\LexendPeta{
-	\small{\blindtext}\bigskip
-
-	\normalsize{\blindtext}\bigskip
-
-	\large{\blindtext}
-}
-
-\subsection{LexendTera}
-
-\LexendTera{
-	\small{\blindtext}\bigskip
-
-	\normalsize{\blindtext}\bigskip
-
-	\large{\blindtext}
-}
-
-\subsection{LexendZetta}
-
-\LexendZetta{
-	\small{\blindtext}\bigskip
-
-	\normalsize{\blindtext}\bigskip
-
-	\large{\blindtext}
+		\large{\blindtext}
+	}
 }
 
 \end{document}

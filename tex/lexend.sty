@@ -11,21 +11,31 @@
 \ProvidesPackage{lexend}
   [%DATE% %VERSION% The Lexend fonts for XeLaTeX and LuaLaTeX through fontspec]
 
+\RequirePackage{expl3}
 \RequirePackage{fontspec}
 
-% Set main font
+
+% Font list
+\def\lexendVariants{
+LexendDeca,%
+LexendExa,%
+LexendGiga,%
+LexendMega,%
+LexendPeta,%
+LexendTera,%
+LexendZetta%
+}
+
+% Font aliases
+%% Iterate over all known fonts and create aliases
+\ExplSyntaxOn
+\clist_map_inline:Nn \lexendVariants { \exp_args:Nc \newfontfamily { #1 } { #1 } }
+\ExplSyntaxOff
+
+% Set main fonts
 \setmainfont{LexendDeca}
 \setsansfont{LexendGiga}
 
-% Font aliases
-\newfontfamily\LexendDeca{LexendDeca}
-\newfontfamily\LexendExa{LexendExa}
-\newfontfamily\LexendGiga{LexendGiga}
-\newfontfamily\LexendMega{LexendMega}
-\newfontfamily\LexendPeta{LexendPeta}
-\newfontfamily\LexendTera{LexendTera}
-\newfontfamily\LexendZetta{LexendZetta}
-
 \endinput
 %%
-%% End of file `lexend.sty'.
+%% End of file lexend.sty.
