@@ -15,12 +15,26 @@
 	allcolors=blue,
 	unicode
 ]{hyperref}
+\usepackage{listing}
 \usepackage{pgffor}
+\usepackage{soul}
+\usepackage{xcolor}
 
 % Settings
+\setmonofont{DejaVu Sans Mono}
+
 \urlstyle{rm}
 
+\definecolor{lightgray}{gray}{0.87}
+
 % Additional commands
+\DeclareRobustCommand{\code}[1]{{\sethlcolor{lightgray}\texttt{\hl{#1}}}}
+\soulregister{\code}{1}
+\makeatletter
+\pdfstringdefDisableCommands{\let\code\@firstofone}
+\makeatother
+
+
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
@@ -77,7 +91,34 @@ people to have an easier time reading.
 
 Consider this contribution to the great \hologo{LaTeX} community as my thank you to you all.
 
-\section{Font samples}
+\section{Package Loading and Options}
+
+\subsection{Loading behavior}
+
+When this package is loaded it sets the main font to \textsf{LexendDeca} and the sans font to \textsf{LexendGiga} using \textsf{fontspec}'s \code{\textbackslash{}setmainfont} and \code{\textbackslash{}setsansfont} commands.
+
+If you do wish to change the default fonts, just override the set fonts yourself with the same commands.
+
+\subsection{Package Options}
+
+\textit{None at the moment}
+
+\section{Features}
+
+\subsection{Commands}
+
+\section{Future Features}
+
+This package is still very young and also fairly incomplete. There's a list of things I'd like to
+add over time. Ordered by how soon I wish to implement them myself.
+
+\begin{itemize}
+\item Package option to turn off setting the main and sans font\tightlist
+\item Support for the continuous spacing font variant of Lexend\tightlist
+\item Support for other \hologo{LaTeX} engines\tightlist
+\end{itemize}
+
+\section{Font Samples}
 
 While this whole document uses LexendDeca as the main font and LexendGiga as the sans font, it
 doesn't hurt showing them off individually.\\
