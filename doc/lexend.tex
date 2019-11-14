@@ -96,7 +96,13 @@ Consider this contribution to the great \hologo{LaTeX} community as my thank you
 
 \subsection{Loading behavior}
 
-When this package is loaded it sets the main font to \textsf{LexendDeca} and the sans font to \textsf{LexendGiga} using \textsf{fontspec}'s \code{\textbackslash{}setmainfont} and \code{\textbackslash{}setsansfont} commands.
+First of all this package depends on the \textsf{fontspec} package and therefore requires
+\hologo{XeLaTeX} and \hologo{LuaLaTeX}. So when you load this package the \textsf{fontspec} will
+also be loaded.
+
+When this package is loaded it sets the main font to \textsf{LexendDeca} and the sans font to
+\textsf{LexendGiga} using \textsf{fontspec}'s \code{\textbackslash{}setmainfont} and
+\code{\textbackslash{}setsansfont} commands.
 
 If you do wish to change the default fonts, just override the set fonts yourself with the same commands.
 
@@ -113,7 +119,7 @@ If you do wish to change the default fonts, just override the set fonts yourself
 Every Lexend font has its own \code{.fontspec} file. Though they are all identical (excluding the
 actual name) and look like this (\code{<FONTNAME>} will be replaced with the font's name of course):
 
-\lstinputlisting[language=TeX,caption={template.fontspec}]{template.fontspec}
+\lstinputlisting[language={[LaTeX]TeX},caption={template.fontspec}]{template.fontspec}
 
 \subsubsection{Expanding the Default Fontspecs}
 
@@ -125,7 +131,7 @@ Use the \code{\textbackslash{}defaultfontfeatures+} command of \textsf{fontspec}
 For example if you would like to set the default color for every time you use the font
 \textsf{LexendPeta}, all you have to do is this:
 
-\begin{lstlisting}[language=TeX]
+\begin{lstlisting}[language={[LaTeX]TeX}]
 \defaultfontfeatures+[LexendPeta]{
 	Color=888888
 }
@@ -147,8 +153,8 @@ add over time. Ordered by how soon I wish to implement them myself.
 
 \section{Font Samples}
 
-While this whole document uses LexendDeca as the main font and LexendGiga as the sans font, it
-doesn't hurt showing them off individually.\\
+While this whole document uses \textsf{LexendDeca} as the main font and \textsf{LexendGiga} as the
+sans font, it doesn't hurt showing them off individually.\\
 Each font will be shown off in the sizes \small\textbackslash{}small\normalsize{},
 \textbackslash{}normalsize and \large\textbackslash{}large\normalsize{} and the variants
 \textbf{\textbackslash{}textbf}, \textit{\textbackslash{}textit} and
