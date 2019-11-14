@@ -14,3 +14,4 @@ build_package:
   artifacts:
     paths:
       - lexend.zip
+      - lexend
