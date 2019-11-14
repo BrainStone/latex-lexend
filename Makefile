@@ -57,12 +57,12 @@ lexend/font/%.ttf: font/fonts/ttf/%.ttf lexend/font/
 lexend/tex/%.fontspec: tex/template.fontspec lexend/font/%-Regular.ttf lexend/tex/
 	@echo Creating fontspec file for $*:
 	@cp -v $< $@
-	@sed -i "s/%FONTNAME%/$*/g" $@
+	@sed -i "s/<FONTNAME>/$*/g" $@
 
 lexend/tex/%.sty: tex/%.sty lexend/tex/
 	@echo Copying package file $*.sty:
 	@cp -v $< $@
-	@sed -i -e "s/%VERSION%/$(VERSION)/g" -e "s@%DATE%@$(DATE)@g" $@
+	@sed -i -e "s/<VERSION>/$(VERSION)/g" -e "s@<DATE>@$(DATE)@g" $@
 
 lexend/doc/lexend.tex: doc/lexend.tex CHANGELOG.md lexend/doc/
 	@echo Copying documentation file lexend.tex:
@@ -70,7 +70,7 @@ lexend/doc/lexend.tex: doc/lexend.tex CHANGELOG.md lexend/doc/
 	@echo Replacing placeholders in lexend.tex
 	@pandoc CHANGELOG.md -f markdown -o lexend/doc/.CHANGELOG.tex -t latex --columns 100
 	@sed -i 's/\\subsection/\\subsection*/g' lexend/doc/.CHANGELOG.tex 
-	@sed -i -e "s/%VERSION%/$(VERSION)/g" -e '/%CHANGELOG%/ {' -e 'r lexend/doc/.CHANGELOG.tex' -e 'd' -e '}' $@
+	@sed -i -e "s/<VERSION>/$(VERSION)/g" -e '/<CHANGELOG>/ {' -e 'r lexend/doc/.CHANGELOG.tex' -e 'd' -e '}' $@
 	@rm lexend/doc/.CHANGELOG.tex
 
 lexend/doc/lexend.pdf: $(TARGET_FONT_FILES) $(TARGET_FONTSPEC_FILES) $(TARGET_PACKAGE_FILES) lexend/doc/lexend.tex

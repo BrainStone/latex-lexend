@@ -1,4 +1,4 @@
-\defaultfontfeatures[%FONTNAME%]
+\defaultfontfeatures[<FONTNAME>]
   {
     Extension = {.ttf},
     UprightFont = {*-Regular},
