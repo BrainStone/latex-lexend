@@ -15,7 +15,7 @@
 	allcolors=blue,
 	unicode
 ]{hyperref}
-\usepackage{listing}
+\usepackage{listings}
 \usepackage{pgffor}
 \usepackage{soul}
 \usepackage{xcolor}
@@ -25,7 +25,9 @@
 
 \urlstyle{rm}
 
-\definecolor{lightgray}{gray}{0.87}
+\definecolor{lightgray}{gray}{0.95}
+
+\lstset{breaklines=true,backgroundcolor=\color{lightgray},basicstyle=\ttfamily,frame=single,numbers=left,numberstyle=\ttfamily,aboveskip=\baselineskip}
 
 % Additional commands
 \DeclareRobustCommand{\code}[1]{{\sethlcolor{lightgray}\texttt{\hl{#1}}}}
@@ -33,7 +35,6 @@
 \makeatletter
 \pdfstringdefDisableCommands{\let\code\@firstofone}
 \makeatother
-
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -106,6 +107,32 @@ If you do wish to change the default fonts, just override the set fonts yourself
 \section{Features}
 
 \subsection{Commands}
+
+\subsection{.fontspec Files}
+
+Every Lexend font has its own \code{.fontspec} file. Though they are all identical (excluding the
+actual name) and look like this (\code{<FONTNAME>} will be replaced with the font's name of course):
+
+\lstinputlisting[language=TeX,caption={template.fontspec}]{template.fontspec}
+
+\subsubsection{Expanding the Default Fontspecs}
+
+If you want to keep the default font settings but would like to add onto them, that's really easy:\\
+Use the \code{\textbackslash{}defaultfontfeatures+} command of \textsf{fontspec}.
+
+\bigskip
+
+For example if you would like to set the default color for every time you use the font
+\textsf{LexendPeta}, all you have to do is this:
+
+\begin{lstlisting}[language=TeX]
+\defaultfontfeatures+[LexendPeta]{
+	Color=888888
+}
+\end{lstlisting}
+
+Since this is handled by the \textsf{fontspec} package, please refer to their documentation at
+\url{https://ctan.org/pkg/fontspec}.
 
 \section{Future Features}
 

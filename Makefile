@@ -73,7 +73,7 @@ lexend/doc/lexend.tex: doc/lexend.tex CHANGELOG.md lexend/doc/
 	@sed -i -e "s/<VERSION>/$(VERSION)/g" -e '/<CHANGELOG>/ {' -e 'r lexend/doc/.CHANGELOG.tex' -e 'd' -e '}' $@
 	@rm lexend/doc/.CHANGELOG.tex
 
-lexend/doc/lexend.pdf: $(TARGET_FONT_FILES) $(TARGET_FONTSPEC_FILES) $(TARGET_PACKAGE_FILES) lexend/doc/lexend.tex
+lexend/doc/lexend.pdf: $(TARGET_FONT_FILES) tex/template.fontspec $(TARGET_FONTSPEC_FILES) $(TARGET_PACKAGE_FILES) lexend/doc/lexend.tex
 	@echo Rendering documentation file pdf:
 	@./scripts/render_doc.sh $^
 
