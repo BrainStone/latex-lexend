@@ -81,19 +81,24 @@ Consider this contribution to the great \hologo{LaTeX} community as my thank you
 
 While this whole document uses LexendDeca as the main font and LexendGiga as the sans font, it
 doesn't hurt showing them off individually.\\
-Each font will be shown off in the sizes \textsf{\textbackslash{}small},
-\textsf{\textbackslash{}normalsize} and \textsf{\textbackslash{}large}.
+Each font will be shown off in the sizes \small\textbackslash{}small\normalsize{}, \textbackslash{}normalsize and \large\textbackslash{}large\normalsize{} and the variants \textbf{\textbackslash{}textbf}, \textit{\textbackslash{}textit} and \textbf{\textit{\textbackslash{}textbf\{\textbackslash{}textit\}}}
 
 \foreach \fontVariant in \lexendVariants
 {
 	\subsection{\texorpdfstring{\fontspec{\fontVariant}{\fontVariant}}{\fontVariant}}
 	
 	\fontspec{\fontVariant}{
-		\small{\blindtext}\bigskip
+		\small\blindtext\normalsize\bigskip
 
-		\normalsize{\blindtext}\bigskip
+		\blindtext\bigskip
 
-		\large{\blindtext}
+		\large\blindtext\normalsize\bigskip
+
+		\textbf{\blindtext}\bigskip
+
+		\textit{\blindtext}\bigskip
+
+		\textbf{\textit{\blindtext}}
 	}
 }
 
