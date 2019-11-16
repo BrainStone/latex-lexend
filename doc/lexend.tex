@@ -40,6 +40,8 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1} \nameref*{#1} (Page \pageref*{#1})}}
+
 % Document start
 \begin{document}
 
@@ -103,18 +105,61 @@ also be loaded.
 
 When this package is loaded it sets the main font to \textsf{LexendDeca} and the sans font to
 \textsf{LexendGiga} using \textsf{fontspec}'s \code{\textbackslash{}setmainfont} and
-\code{\textbackslash{}setsansfont} commands.
+\code{\textbackslash{}setsansfont} commands.\footnote{See \fullref{subsec:package-options}}
 
 If you do wish to change the default fonts, just override the set fonts yourself with the same
 commands.
 
-\subsection{Package Options}
+\subsection{Package Options}\label{subsec:package-options}
 
-\textit{None at the moment}
+\textit{None at the moment}\footnote{See \fullref{subsec:future-features}}
 
 \section{Features}
 
+There aren't many features to talk about yet\footnote{See \fullref{subsec:future-features}}, but it
+certainly doesn't hurt documenting them.
+
 \subsection{Commands}
+
+\begin{function}{
+	\LexendDeca,
+	\LexendExa,
+	\LexendGiga,
+	\LexendMega,
+	\LexendPeta,
+	\LexendTera,
+	\LexendZetta
+}
+This collection of commands allows you to use any of the Lexend fonts ad-hoc.\\
+The usage is identical to any font modification commands (like \code{\textbackslash{}textit} for
+example.)
+
+It is equivelent to using the \code{\textbackslash{}fontspec} command with the corresponding font
+variant name as the parameter to the \code{\textbackslash{}fontspec} command.
+
+Using it looks as follows:
+
+\begin{lstlisting}[language={[LaTeX]TeX},caption={\code{\textbackslash{}LexendPeta Example}}]
+\LexendPeta{
+	Text here.
+}
+\end{lstlisting}
+
+\LexendPeta{
+	Text here.
+}
+\end{function}
+
+\begin{function}{\LexendVariants}
+This command is just a list containing all variants of the Lexend font collection.\\
+Mainly useful if you want to iterate over all font variants.
+
+\bigskip
+Using it as is will yield this result:
+
+\bigskip
+\LexendVariants
+\end{function}
 
 \subsection{.fontspec Files}
 
@@ -142,7 +187,7 @@ For example if you would like to set the default color for every time you use th
 Since this is handled by the \textsf{fontspec} package, please refer to their documentation at
 \url{https://ctan.org/pkg/fontspec}.
 
-\subsection{Future Features}
+\subsection{Future Features}\label{subsec:future-features}
 
 This package is still very young and also fairly incomplete. There's a list of things I'd like to
 add over time. Ordered by how soon I wish to implement them myself.
@@ -180,7 +225,7 @@ Each font will be shown off in the sizes \small\textbackslash{}small\normalsize{
 \textbf{\textbackslash{}textbf}, \textit{\textbackslash{}textit} and
 \textbf{\textit{\textbackslash{}textbf\{\textbackslash{}textit\}}}
 
-\foreach \fontVariant in \lexendVariants
+\foreach \fontVariant in \LexendVariants
 {
 	\subsection{\texorpdfstring{\fontspec{\fontVariant}{\fontVariant}}{\fontVariant}}
 	
