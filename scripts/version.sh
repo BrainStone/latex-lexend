@@ -58,7 +58,7 @@ if [ -z "$1" ] || [ "$1" == "version" ]; then
             BRANCH=$(git describe --all | sed -e 's@^[^/]*/@@g' -e 's@/\|\\@_@g')
         fi
 
-        if [ "$BRANCH" != "master" ] && ! [[ "$BRANCH" =~ v[0-9]+\\.[0-9]+\\.[0-9]+ ]]; then
+        if [ "$BRANCH" != "master" ] && ! [[ "$BRANCH" =~ v[0-9]+\.[0-9]+\.[0-9]+ ]]; then
             baseVersion="$baseVersion-$BRANCH"
         fi
 

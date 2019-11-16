@@ -1,3 +1,9 @@
+Version 0.1.1
+-------------
+
+\* Fixed detecting tags as branches that should not be added to the version.  
+
+
 Version 0.1.0
 -------------
 
