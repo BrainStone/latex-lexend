@@ -1,4 +1,4 @@
-\documentclass[oneside,a4paper]{ltxdoc}
+\documentclass[oneside,a4paper]{l3doc}
 
 % Packages
 \usepackage{lexend}
@@ -6,15 +6,6 @@
 \usepackage[english]{babel}
 \usepackage{blindtext}
 \usepackage{hologo}
-\usepackage[
-	hidelinks,
-	bookmarksnumbered,
-	bookmarksopen,
-	bookmarksdepth=3,
-	colorlinks=true,
-	allcolors=blue,
-	unicode
-]{hyperref}
 \usepackage{listings}
 \usepackage{pgffor}
 \usepackage{soul}
@@ -22,6 +13,16 @@
 
 % Settings
 \setmonofont{DejaVu Sans Mono}
+
+\hypersetup{
+	hidelinks,
+	bookmarksnumbered,
+	bookmarksopen,
+	bookmarksdepth=3,
+	colorlinks=true,
+	allcolors=blue,
+	unicode
+}
 
 \urlstyle{rm}
 
