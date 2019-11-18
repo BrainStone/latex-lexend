@@ -11,9 +11,19 @@
 \ProvidesPackage{lexend}
   [<DATE> <VERSION> The Lexend fonts for XeLaTeX and LuaLaTeX through fontspec]
 
+% Packages/Dependencies
 \RequirePackage{expl3}
 \RequirePackage{fontspec}
+\RequirePackage{kvoptions}
 
+% Package options
+\DeclareBoolOption[true]{main}
+\DeclareComplementaryOption{nomain}{main}
+
+\DeclareBoolOption[true]{sans}
+\DeclareComplementaryOption{nosans}{sans}
+
+\ProcessKeyvalOptions*{}
 
 % Font list
 \def\LexendVariants{
@@ -33,8 +43,13 @@ LexendZetta%
 \ExplSyntaxOff
 
 % Set main fonts
-\setmainfont{LexendDeca}
-\setsansfont{LexendGiga}
+\iflexend@main
+  \setmainfont{LexendDeca}
+\fi
+
+\iflexend@sans
+  \setsansfont{LexendGiga}
+\fi
 
 \endinput
 %%

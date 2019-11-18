@@ -1,3 +1,9 @@
+Version 1.0.0
+-------------
+
+\+ Added package options `nomain` (and `main`) and `nosans` (and `sans`).  
+
+
 Version 0.1.1
 -------------
 
