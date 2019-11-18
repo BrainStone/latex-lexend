@@ -147,14 +147,22 @@ variant name as the parameter to the \code{\textbackslash{}fontspec} command.
 
 Using it looks as follows:
 
-\begin{lstlisting}[language={[LaTeX]TeX},caption={\code{\textbackslash{}LexendPeta Example}}]
+\begin{lstlisting}[language={[LaTeX]TeX},caption={\code{\textbackslash{}LexendPeta} Example}]
 \LexendPeta{
-	Text here.
+	Text here.\\
+	More text.
+
+	This text is using the font LexendPeta.
 }
 \end{lstlisting}
 
+Result:\bigskip
+
 \LexendPeta{
-	Text here.
+	Text here.\\
+	More text.
+
+	This text is using the font LexendPeta.
 }
 \end{function}
 
@@ -186,7 +194,7 @@ Use the \code{\textbackslash{}defaultfontfeatures+} command of \textsf{fontspec}
 For example if you would like to set the default color for every time you use the font
 \textsf{LexendPeta}, all you have to do is this:
 
-\begin{lstlisting}[language={[LaTeX]TeX}]
+\begin{lstlisting}[language={[LaTeX]TeX},caption={\code{\textbackslash{}defaultfontfeatures+} Example}]
 \defaultfontfeatures+[LexendPeta]{
 	Color=888888
 }
