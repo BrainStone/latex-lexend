@@ -89,4 +89,4 @@ under https://github.com/ThomasJockin/lexend/blob/master/OFL.txt.
 
 > Hardware: The parts of a computer system that can be kicked.
 >
-> <cite>Jeff Pesis</cite>
+> — <cite>Jeff Pesis</cite>
