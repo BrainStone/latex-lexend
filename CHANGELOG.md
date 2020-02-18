@@ -1,3 +1,9 @@
+Version 1.0.1
+-------------
+
+\* Updated lexend to 1.1.0.  
+
+
 Version 1.0.0
 -------------
 
@@ -19,4 +25,3 @@ Version 0.1.0
 \+ Added build system.  
 \+ Added package docs (including font samples).  
 \+ Added acknowledgements.  
-
