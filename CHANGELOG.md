@@ -1,7 +1,16 @@
 Version 1.0.1
 -------------
 
-\* Updated lexend to 1.1.  
+\* Updated lexend to 1.1:
+
+> 2018 April 9 (Thomas Jockin) Version 1.0
+>
+> - First public release
+>
+> 2020 January 18 (Thomas Jockin) Version 1.1
+>
+> - Expansion to Arabic script
+> - Bug fixes in Latin Character Set
 
 
 Version 1.0.0
