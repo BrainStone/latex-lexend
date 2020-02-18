@@ -1,3 +1,9 @@
+Version 1.0.2
+-------------
+
+\* Add original changelog to changelog.  
+
+
 Version 1.0.1
 -------------
 
