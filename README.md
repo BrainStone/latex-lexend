@@ -18,7 +18,7 @@ The [Lexend fonts](https://www.lexend.com/) for XeLaTeX and LuaLaTeX through fon
 
 ## Dowloading
 
-You can find this package on[CTAN](https://ctan.org/): https://ctan.org/pkg/lexend
+You can find this package on [CTAN](https://ctan.org/): https://ctan.org/pkg/lexend
 
 ## Working with the Source Code
 
