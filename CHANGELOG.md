@@ -1,7 +1,7 @@
 Version 1.0.1
 -------------
 
-\* Updated lexend to 1.1.0.  
+\* Updated lexend to 1.1.  
 
 
 Version 1.0.0
