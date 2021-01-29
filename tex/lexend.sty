@@ -39,7 +39,10 @@
 
 % Font aliases
 %% Iterate over all known fonts and create aliases
-\clist_map_inline:Nn \LexendVariants { \exp_args:Nc \newfontfamily { #1 } { #1 } }
+\clist_map_inline:Nn \LexendVariants {
+  \exp_args:Nc \newfontfamily { @#1 } { #1 }
+  \exp_args:Ncc \DeclareTextFontCommand { #1 } { @#1 }
+}
 \ExplSyntaxOff
 
 % Set main fonts
