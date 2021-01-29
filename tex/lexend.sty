@@ -26,19 +26,19 @@
 \ProcessKeyvalOptions*{}
 
 % Font list
-\def\LexendVariants{%
-LexendDeca,%
-LexendExa,%
-LexendGiga,%
-LexendMega,%
-LexendPeta,%
-LexendTera,%
-LexendZetta%
+\ExplSyntaxOn
+\def\LexendVariants{
+  LexendDeca,
+  LexendExa,
+  LexendGiga,
+  LexendMega,
+  LexendPeta,
+  LexendTera,
+  LexendZetta
 }
 
 % Font aliases
 %% Iterate over all known fonts and create aliases
-\ExplSyntaxOn
 \clist_map_inline:Nn \LexendVariants { \exp_args:Nc \newfontfamily { #1 } { #1 } }
 \ExplSyntaxOff
 
