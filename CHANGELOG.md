@@ -1,3 +1,10 @@
+Version 1.1.0
+-------------
+
+\* [Fixed XeLaTeX support](https://github.com/BrainStone/latex-lexend/issues/1).  
+\* Made the `\LexendXXX` commands work as described in the documentation - [Marcel Krüger - \@zauguin](https://github.com/zauguin)  
+
+
 Version 1.0.2
 -------------
 
